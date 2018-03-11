@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "" do
+RSpec.feature "User information" do
 
   it "A user can be created" do
     visit new_user_path
@@ -12,7 +12,7 @@ RSpec.feature "" do
     assert page.has_content?("Welcome Finn the Human")
   end
 
-  it "user is routed to homepage after login" do
+  it "registered user can login" do
     user = User.create(username: "Jake the Dog", password: "password")
 
     visit login_path
