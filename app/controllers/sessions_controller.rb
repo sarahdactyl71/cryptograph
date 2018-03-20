@@ -11,4 +11,8 @@ class SessionsController < ApplicationController
       #user doesn't exist or password is incorrect
     end
   end
+
+  def destroy
+
+  end
 end
