@@ -21,6 +21,10 @@
       </div>
     </nav>
 
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+      <%= link_to "Logout", logout_path, method: :delete %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
