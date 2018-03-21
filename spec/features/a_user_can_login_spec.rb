@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User information" do
+
   before(:each) do
     reset_session!
   end
@@ -23,6 +24,8 @@ RSpec.feature "User information" do
     fill_in "Password", with: 'password'
     click_button "Login"
 
+    expect(user.username).to eq("Jake the Dog")
+    expect(current_path).to eq user_path
     assert page.has_content?("Welcome Jake the Dog")
   end
 
@@ -34,7 +37,9 @@ RSpec.feature "User information" do
     fill_in "Password", with: 'password'
     click_button "Login"
 
+    expect(user.username).to eq("Princess Bubblegum")
     assert page.has_content?("Welcome Princess Bubblegum")
+    expect(current_path).to eq user_path
 
     click_link "Logout"
 
