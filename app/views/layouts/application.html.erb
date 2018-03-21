@@ -21,6 +21,9 @@
       </div>
     </nav>
 
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      #rerender new view if validations fail
+      render 'new'
     end
   end
 
