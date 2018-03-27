@@ -25,7 +25,6 @@ RSpec.feature "User information" do
     click_button "Login"
 
     expect(user.username).to eq("Jake the Dog")
-    # expect(current_user).to exist
     expect(current_path).to eq(user_path(user))
     assert page.has_content?("Welcome Jake the Dog")
   end
@@ -40,7 +39,7 @@ RSpec.feature "User information" do
 
     expect(user.username).to eq("Princess Bubblegum")
     assert page.has_content?("Welcome Princess Bubblegum")
-    expect(current_path).to eq user_path
+    expect(current_path).to eq(user_path(user))
 
     click_link "Logout"
 
