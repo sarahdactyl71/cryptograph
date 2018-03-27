@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User information" do
 
-  before(:each) do
+  before(:all) do
     reset_session!
   end
 
@@ -20,12 +20,12 @@ RSpec.feature "User information" do
     user = User.create(username: "Jake the Dog", password: "password")
 
     visit login_path
-    fill_in "Username", with: 'user.username'
+    fill_in "Username", with: user.username
     fill_in "Password", with: 'password'
     click_button "Login"
 
     expect(user.username).to eq("Jake the Dog")
-    # expect(current_user).to exist 
+    # expect(current_user).to exist
     expect(current_path).to eq(user_path(user))
     assert page.has_content?("Welcome Jake the Dog")
   end
@@ -34,7 +34,7 @@ RSpec.feature "User information" do
     user = User.create(username: "Princess Bubblegum", password: "password")
 
     visit login_path
-    fill_in "Username", with: 'user.username'
+    fill_in "Username", with: user.username
     fill_in "Password", with: 'password'
     click_button "Login"
 
