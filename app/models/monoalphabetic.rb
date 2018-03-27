@@ -1,7 +1,7 @@
 class Monoalphabetic < ApplicationRecord
 
-  def alphabet
-    list = {
+  def self.alphabet
+    {
       a: 1,
       b: 2,
       c: 3,
@@ -28,8 +28,7 @@ class Monoalphabetic < ApplicationRecord
       x: 24,
       y: 25,
       z: 26
-    }
-    list
+            }
   end
 
   def scramble(message, num)
