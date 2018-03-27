@@ -33,8 +33,10 @@ class Monoalphabetic < ApplicationRecord
   end
 
   def scramble(message, num)
-    message.to_a
-    message.map! { |letter| alphabet[:letter] + num }
+    message = message.chars
+    message.map! do |letter|
+      alphabet[:letter]
+    end
     message
   end
 
