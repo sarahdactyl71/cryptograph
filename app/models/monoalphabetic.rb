@@ -1,6 +1,6 @@
 class Monoalphabetic < ApplicationRecord
 
-  def self.alphabet
+  def alphabet
     list = {
       a: 1,
       b: 2,
