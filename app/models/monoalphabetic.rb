@@ -1,6 +1,6 @@
 class Monoalphabetic < ApplicationRecord
 
-  def alphabet
+  def self.alphabet
     list = {
       a: 1,
       b: 2,
@@ -33,7 +33,7 @@ class Monoalphabetic < ApplicationRecord
   end
 
   def scramble(message, num)
-    message.to_s
+    message.to_a
     message.map! { |letter| alphabet[:letter] + num }
     message
   end
@@ -42,3 +42,5 @@ class Monoalphabetic < ApplicationRecord
 
   end
 end
+
+# a.alphabet.index(6)
