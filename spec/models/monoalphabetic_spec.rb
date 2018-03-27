@@ -20,4 +20,12 @@ RSpec.describe Monoalphabetic, type: :model do
 
      expect(message).to eq("abc")
    end
+
+#    it "can scramble a complicated message" do
+#      m = Monoalphabetic.new
+#      message = "And that my leige is why we know the Earth to be banana shaped."
+#      m.scramble(message)
+#
+#      expect(message).to eq(SOMETHING)
+#    end
 end
