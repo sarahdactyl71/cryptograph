@@ -21,10 +21,24 @@ RSpec.describe Monoalphabetic, type: :model do
      expect(message).to eq("abc")
    end
 
+   it "can skip over a space in an encoded message" do
+     m = Monoalphabetic.create
+     message = m.encode("ab c", 1)
+
+     expect(message).to eq("bc d")
+   end
+
+   it "can skip over a space in a decoded message" do
+     m = Monoalphabetic.create
+     message = m.encode("bc d", 1)
+
+     expect(message).to eq("ab c")
+   end
+
 #    it "can scramble a complicated message" do
 #      m = Monoalphabetic.new
 #      message = "And that my leige is why we know the Earth to be banana shaped."
-#      m.scramble(message)
+#      m.encode(message, offset)
 #
 #      expect(message).to eq(SOMETHING)
 #    end
