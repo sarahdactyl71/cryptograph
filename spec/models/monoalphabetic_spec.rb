@@ -35,11 +35,12 @@ RSpec.describe Monoalphabetic, type: :model do
      expect(message).to eq("ab c")
    end
 
-#    it "can scramble a complicated message" do
-#      m = Monoalphabetic.new
-#      message = "And that my leige is why we know the Earth to be banana shaped."
-#      m.encode(message, offset)
-#
-#      expect(message).to eq(SOMETHING)
-#    end
+   it "can scramble a complicated message" do
+     m = Monoalphabetic.create
+     sentance = "And that my leige is why we know the Earth to be banana shaped"
+     message = m.encode(sentance, 1)
+
+     expect(message).to eq("boe uibu nz mfjhf jt xiz xf lopx uif fbsui up cf cbobob tibqfe")
+   end
+
 end

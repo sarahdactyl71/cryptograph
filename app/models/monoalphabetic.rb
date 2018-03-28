@@ -5,6 +5,7 @@ class Monoalphabetic < ApplicationRecord
     message = message.chars
     secret = ""
     message.each do |letter|
+      letter = letter.downcase
       if letter == " "
         secret << letter
       else
