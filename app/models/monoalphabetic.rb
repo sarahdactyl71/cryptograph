@@ -1,4 +1,5 @@
 class Monoalphabetic < ApplicationRecord
+  include CharacterMap
 
   def scramble(message, num)
     message = message.chars

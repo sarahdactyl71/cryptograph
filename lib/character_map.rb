@@ -1,4 +1,4 @@
-module CharacterMap < ApplicationRecord
+module CharacterMap 
 
   def character_map
     {
