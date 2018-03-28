@@ -9,7 +9,7 @@ RSpec.describe Monoalphabetic, type: :model do
 
    it "can scramble a message" do
      m = Monoalphabetic.create
-     secret = m.scramble("abc", 1)
+     secret = m.encode("abc", 1)
 
      expect(secret).to eq("bcd")
    end
