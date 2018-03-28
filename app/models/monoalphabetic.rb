@@ -6,7 +6,7 @@ class Monoalphabetic < ApplicationRecord
     secret = ""
     message.each do |letter|
       letter = letter.downcase
-      if letter == " "
+      if self.character_map.index(letter) == nil 
         secret << letter
       else
         new_index = self.character_map.index(letter) + offset

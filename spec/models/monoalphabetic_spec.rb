@@ -43,4 +43,12 @@ RSpec.describe Monoalphabetic, type: :model do
      expect(message).to eq("boe uibu nz mfjhf jt xiz xf lopx uif fbsui up cf cbobob tibqfe")
    end
 
+   it "can skip over special characters" do
+     m = Monoalphabetic.create
+     sentance = "!@#$%^&*().?,"
+     message = m.encode(sentance, 1)
+
+     expect(message).to eq("!@#$%^&*().?,")
+   end
+
 end
