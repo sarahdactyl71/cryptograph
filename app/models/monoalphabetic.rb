@@ -2,14 +2,6 @@ class Monoalphabetic < ApplicationRecord
   include CharacterMap
 
   def encode(message, offset)
-    self.scramble(message, offset)
-  end
-
-  def decode(message, offset)
-    self.scramble(message, -offset)
-  end
-
-  def scramble(message, offset)
     message = message.chars
     secret = ""
     message.each do |letter|
@@ -18,6 +10,10 @@ class Monoalphabetic < ApplicationRecord
       secret << letter
     end
     secret
+  end
+
+  def decode(message, offset)
+    self.encode(message, -offset)
   end
 
 end
