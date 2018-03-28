@@ -30,7 +30,7 @@ RSpec.describe Monoalphabetic, type: :model do
 
    it "can skip over a space in a decoded message" do
      m = Monoalphabetic.create
-     message = m.encode("bc d", 1)
+     message = m.decode("bc d", 1)
 
      expect(message).to eq("ab c")
    end

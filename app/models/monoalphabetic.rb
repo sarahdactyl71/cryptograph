@@ -5,9 +5,13 @@ class Monoalphabetic < ApplicationRecord
     message = message.chars
     secret = ""
     message.each do |letter|
-      new_index = self.character_map.index(letter) + offset
-      letter = self.character_map[new_index]
-      secret << letter
+      if letter == " "
+        secret << letter
+      else
+        new_index = self.character_map.index(letter) + offset
+        letter = self.character_map[new_index]
+        secret << letter
+      end
     end
     secret
   end
