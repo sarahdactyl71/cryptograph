@@ -4,7 +4,8 @@ class Monoalphabetic < ApplicationRecord
   def scramble(message, num)
     message = message.chars
     message.map! do |letter|
-      alphabet[:letter]
+      binding.pry
+      self.character_map[letter]
     end
     message
   end
