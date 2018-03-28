@@ -15,21 +15,21 @@ RSpec.describe Atbash, type: :model do
     expect(secret).to eq("zyx")
   end
 
-  it "can decode a simple message" do
+  xit "can decode a simple message" do
     a = Atbash.create
     message = a.decode("zyx")
 
     expect(secret).to eq("abc")
   end
 
-  it "exludes special characters" do
+  xit "exludes special characters" do
     a = Atbash.create
     secret = a.encode("!@#$%^&*()<>.?")
 
     expect(secret).to eq("!@#$%^&*()<>.?")
   end
 
-  it "can process uppercase characters" do
+  xit "can process uppercase characters" do
     a = Atbash.create
     secret = a.encode("ABC")
 
