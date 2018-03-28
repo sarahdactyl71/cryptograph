@@ -1,18 +1,18 @@
 class Monoalphabetic < ApplicationRecord
   include CharacterMap
 
-  def scramble(message, num)
+  def scramble(message, offset)
     message = message.chars
-    message.map! do |letter|
-      binding.pry
-      self.character_map[letter]
+    secret = ""
+    message.each do |letter|
+      new_index = self.character_map.index(letter) + offset
+      letter = self.character_map[new_index]
+      secret << letter
     end
-    message
+    secret
   end
 
-  def decode(message, num)
+  def decode(message, offset)
 
   end
 end
-
-# a.alphabet.index(6)
