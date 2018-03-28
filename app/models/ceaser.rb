@@ -1,4 +1,4 @@
-class Monoalphabetic < ApplicationRecord
+class Ceaser < ApplicationRecord
   include CharacterMap
 
   def encode(message, offset)
@@ -6,7 +6,7 @@ class Monoalphabetic < ApplicationRecord
     secret = ""
     message.each do |letter|
       letter = letter.downcase
-      if self.character_map.index(letter) == nil 
+      if self.character_map.index(letter) == nil
         secret << letter
       else
         new_index = self.character_map.index(letter) + offset
