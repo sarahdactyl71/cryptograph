@@ -37,10 +37,10 @@ RSpec.describe Monoalphabetic, type: :model do
 
    it "can scramble a complicated message" do
      m = Monoalphabetic.create
-     sentance = "And that my leige is why we know the Earth to be banana shaped"
+     sentance = "And that my leige is why we know the Earth to be banana shaped."
      message = m.encode(sentance, 1)
 
-     expect(message).to eq("boe uibu nz mfjhf jt xiz xf lopx uif fbsui up cf cbobob tibqfe")
+     expect(message).to eq("boe uibu nz mfjhf jt xiz xf lopx uif fbsui up cf cbobob tibqfe.")
    end
 
    it "can skip over special characters" do
