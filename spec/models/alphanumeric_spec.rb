@@ -10,14 +10,21 @@ RSpec.describe Alphanumeric, type: :model do
 
   it "can encode a simple message" do
     a = Alphanumeric.create
-    secret = a.encode("abc")
+    secret = a.encode("a")
 
-    expect(secret).to eq("123")
+    expect(secret).to eq("1")
   end
 
   it "can decdoe a simple secret" do
     a = Alphanumeric.create
-    message = a.decode("123")
+    message = a.decode("1")
+
+    expect(message).to eq("a")
+  end
+
+  it "can decode - from other special characters" do
+    a = Alphanumeric.create
+    message = a.decode("1-2-3")
 
     expect(message).to eq("abc")
   end
