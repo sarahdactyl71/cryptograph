@@ -15,6 +15,13 @@ RSpec.describe Alphanumeric, type: :model do
     expect(secret).to eq("1")
   end
 
+  it "can encode a simple message to output numbers with dashes" do
+    a = Alphanumeric.create
+    secret = a.encode("abc")
+
+    expect(secret).to eq("1-2-3")
+  end
+
   it "can decdoe a simple secret" do
     a = Alphanumeric.create
     message = a.decode("1")
