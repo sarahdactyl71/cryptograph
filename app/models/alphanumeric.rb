@@ -5,12 +5,17 @@ class Alphanumeric < ApplicationRecord
     message = message.chars
     secret = ""
     message.each.with_index do |character, index|
-      character = self.character_map.index(character).to_i + 1
-      character = character.to_s
-      if index == message.length - 1
+      character = character.downcase
+      if self.character_map.index(character) == nil
         secret << character
       else
-        secret << character + "-"
+        character = self.character_map.index(character).to_i + 1
+        character = character.to_s
+        if index == message.length - 1
+          secret << character
+        else
+          secret << character + "-"
+        end
       end
     end
     secret

@@ -36,18 +36,18 @@ RSpec.describe Alphanumeric, type: :model do
     expect(message).to eq("abc")
   end
 
-  xit "excludes special characters" do
+  it "excludes special characters" do
     a = Alphanumeric.create
     message = a.encode("!@#$%^&*()_+<>,.?![]/")
 
     expect(message).to eq("!@#$%^&*()_ +<>,.?![]/")
   end
 
-  xit "can handle uppercase characters" do
+  it "can handle uppercase characters" do
     a = Alphanumeric.create
     message = a.encode("ABC")
 
-    expect(message).to eq("123")
+    expect(message).to eq("1-2-3")
   end
 
 end
