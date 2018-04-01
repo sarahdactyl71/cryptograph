@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Alphanumeric, type: :model do
 
-  it "can be created" do
+  xit "can be created" do
     a = Alphanumeric.create
 
     expect(a).to be_instance_of(Alphanumeric)
@@ -15,35 +15,35 @@ RSpec.describe Alphanumeric, type: :model do
     expect(secret).to eq("1")
   end
 
-  it "can encode a simple message to output numbers with dashes" do
+  xit "can encode a simple message to output numbers with dashes" do
     a = Alphanumeric.create
     secret = a.encode("abc")
 
     expect(secret).to eq("1-2-3")
   end
 
-  it "can decdoe a simple secret" do
+  xit "can decdoe a simple secret" do
     a = Alphanumeric.create
     message = a.decode("1")
 
     expect(message).to eq("a")
   end
 
-  it "can decode - from other special characters" do
+  xit "can decode - from other special characters" do
     a = Alphanumeric.create
     message = a.decode("1-2-3")
 
     expect(message).to eq("abc")
   end
 
-  it "excludes special characters" do
+  xit "excludes special characters" do
     a = Alphanumeric.create
     message = a.encode("!@#$%^&*()_+<>,.?![]/")
 
     expect(message).to eq("!@#$%^&*()_ +<>,.?![]/")
   end
 
-  it "can handle uppercase characters" do
+  xit "can handle uppercase characters" do
     a = Alphanumeric.create
     message = a.encode("ABC")
 
