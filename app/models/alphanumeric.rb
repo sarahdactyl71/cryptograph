@@ -7,7 +7,7 @@ class Alphanumeric < ApplicationRecord
     message.each do |character|
       character = self.character_map.index(character).to_i + 1
       character = character.to_s
-      secret << character
+      secret << character + "-"
     end
     secret
   end
