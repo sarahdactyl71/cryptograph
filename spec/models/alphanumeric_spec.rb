@@ -40,7 +40,7 @@ RSpec.describe Alphanumeric, type: :model do
     a = Alphanumeric.create
     message = a.encode("!@#$%^&*()_+<>,.?![]/")
 
-    expect(message).to eq("!@#$%^&*()_ +<>,.?![]/")
+    expect(message).to eq("!@#$%^&*()_+<>,.?![]/")
   end
 
   it "can handle uppercase characters" do
