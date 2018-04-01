@@ -102,4 +102,11 @@ RSpec.describe Ceaser, type: :model do
      expect(message).to eq("mr. caesarian will be out next week. mr. atbash will substitute.")
    end
 
+   it "can decode cipher from Carpet Diem" do
+     m = Ceaser.create
+     message = m.decode("SXEHUWB LV WKH JUHDWHVW PBVWHUB RI DOO DOVR: JR RXWVLGH DQG PDNH IULHQGV.", 3)
+
+     expect(message).to eq("puberty is the greatest mystery of all also: go outside and make friends.")
+   end
+
 end
