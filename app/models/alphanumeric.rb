@@ -17,7 +17,7 @@ class Alphanumeric < ApplicationRecord
   end
 
   def decode(message)
-    message = message.chars
+    message = message.split('-')
     secret = ""
     message.each do |character|
       character = character.to_i - 1
