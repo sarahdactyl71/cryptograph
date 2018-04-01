@@ -4,9 +4,10 @@ class Alphanumeric < ApplicationRecord
   def encode(message)
     message = message.chars
     secret = ""
-    message.each do |letter|
-      letter = self.character_map.index(letter).to_i + 1
-      secret << letter
+    message.each do |character|
+      character = self.character_map.index(character).to_i + 1
+      character = character.to_s
+      secret << character
     end
     secret
   end
