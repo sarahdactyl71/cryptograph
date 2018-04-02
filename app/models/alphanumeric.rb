@@ -22,16 +22,16 @@ class Alphanumeric < ApplicationRecord
   end
 
   def decode(message)
+    # binding.pry
     message = message.split("-")
-    binding.pry
     secret = ""
     message.each do |character|
-      if character.length > 2
-        #do something
-      else
+      if character.length <= 2
         character = character.to_i - 1
         letter = self.character_map[character]
         secret << letter
+      else
+        #do something
       end
     end
     secret
