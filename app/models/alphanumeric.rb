@@ -22,12 +22,24 @@ class Alphanumeric < ApplicationRecord
   end
 
   def decode(message)
-    message = message.split('-')
+    message = message.chars
     secret = ""
     message.each do |character|
-      character = character.to_i - 1
-      character = self.character_map[character]
-      secret << character
+      character = character.downcase
+      # if character.is_a? Integer
+      #   character = character.to_i - 1
+      #   character = self.character_map[character]
+      #   secret << character
+      # else
+      #   secret << character
+      # end
+      if self.character_map.index(character) == nil && character.is_a? Integer == false
+        secret << character
+      else
+        character = character.to_i - 1
+        character = self.character_map[character]
+        secret << character
+      end
     end
     secret
   end
