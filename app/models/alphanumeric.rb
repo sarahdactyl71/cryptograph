@@ -25,8 +25,11 @@ class Alphanumeric < ApplicationRecord
     message = message.chars
     secret = ""
     message.each do |character|
-      character = character.downcase
-      if self.character_map.index(character) == nil #need to check that the character is an integer
+      character = character.to_i
+      # binding.pry
+      if character == '-'
+        secret << character
+      elsif self.character_map.index(character) == nil && self.integer_check(character) == false
         secret << character
       else
         character = character.to_i - 1
@@ -35,6 +38,10 @@ class Alphanumeric < ApplicationRecord
       end
     end
     secret
+  end
+
+  def integer_check(character)
+    character.is_a? Integer
   end
 
 end
