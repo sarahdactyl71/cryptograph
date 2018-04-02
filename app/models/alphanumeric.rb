@@ -22,7 +22,6 @@ class Alphanumeric < ApplicationRecord
   end
 
   def decode(message)
-    # binding.pry
     message = message.split("-")
     secret = ""
     message.each do |character|
@@ -31,7 +30,13 @@ class Alphanumeric < ApplicationRecord
         letter = self.character_map[character]
         secret << letter
       else
-        #do something
+        binding.pry
+        piece = character.partition(" ")
+        piece.each do |letter|
+          character = character.to_i - 1
+          letter = self.character_map[character]
+          secret << letter
+        end
       end
     end
     secret
