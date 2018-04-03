@@ -35,12 +35,15 @@ class Alphanumeric < ApplicationRecord
           if char == " "
             secret << char
           elsif ("1".."26").include?(char) == false
-            char = char.split(/[':','?','.''','!']/)
+            char = char.split(/(?=[':','?','.','!',',','''])/)
             char.each do |character|
-              char = character.to_i - 1
-              letter = self.character_map[char]
-              secret << letter
-              # binding.pry
+              if character.to_i == 0
+                secret << character
+              else
+                character = character.to_i - 1
+                letter = self.character_map[character]
+                secret << letter
+              end
             end
           else
             char = char.to_i - 1
