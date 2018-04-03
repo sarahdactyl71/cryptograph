@@ -30,21 +30,25 @@ class Alphanumeric < ApplicationRecord
         letter = self.character_map[character]
         secret << letter
       else
-        character = character.partition(" ")
-        character.each do |char|
-          if char == " "
-            secret << char
-          elsif ("1".."26").include?(char) == false
-            process_special_characters(char, secret)
-          else
-            char = char.to_i - 1
-            letter = self.character_map[char]
-            secret << letter
-          end
-        end
+        character_partitioning(character, secret)
       end
     end
     secret
+  end
+
+  def character_partitioning(character, secret)
+    character = character.partition(" ")
+    character.each do |char|
+      if char == " "
+        secret << char
+      elsif ("1".."26").include?(char) == false
+        process_special_characters(char, secret)
+      else
+        char = char.to_i - 1
+        letter = self.character_map[char]
+        secret << letter
+      end
+    end
   end
 
   def process_special_characters(char, secret)
