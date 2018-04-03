@@ -34,8 +34,9 @@ class Alphanumeric < ApplicationRecord
         character.each do |char|
           if char == " "
             secret << char
+          elsif ("1".."26").include?(char) == false
+            # binding.pry
           else
-            binding.pry
             char = char.to_i - 1
             letter = self.character_map[char]
             secret << letter
