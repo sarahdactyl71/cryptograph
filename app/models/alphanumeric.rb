@@ -55,7 +55,17 @@ class Alphanumeric < ApplicationRecord
     char = char.split(/(?=[':','?','.','!',',','''])/)
     char.each do |character|
       if character.to_i == 0
-        secret << character
+        # binding.pry
+        character = character.split(/(?<=[':','?','.','!',',','''])/)
+        character.each do |char|
+          if char.to_i == 0
+            secret << char
+          else
+            char = char.to_i - 1
+            letter = self.character_map[char]
+            secret << letter
+          end
+        end
       else
         character = character.to_i - 1
         letter = self.character_map[character]

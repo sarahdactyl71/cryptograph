@@ -63,7 +63,7 @@ RSpec.describe Alphanumeric, type: :model do
     a = Alphanumeric.create
     message = a.decode("14-5-24-20 21-16: '6-15-15-20-2-15-20 20-23-15: 7-18-21-14-11-12-5'19 7-18-5-22-5-14-7-5.'")
 
-    expect(message).to eq("next up: 'footbot two: grunkles's grevenge.'")
+    expect(message).to eq("next up: 'footbot two: grunkle's grevenge.'")
   end
 
   it "can decode cryptogram from The Deep End" do
@@ -73,35 +73,35 @@ RSpec.describe Alphanumeric, type: :model do
     expect(message).to eq("vivan los patos de la piscina.")
   end
 
-  xit "can decode cryptogram from Carpet Diem" do
+  it "can decode cryptogram from Carpet Diem" do
     a = Alphanumeric.create
     message = a.decode("2-21-20 23-8-15 19-20-15-12-5 20-8-5 3-1-16-5-18-19?")
 
     expect(message).to eq("but who stole the capers?")
   end
 
-  xit "can decode cryptogram from Boyz Crazy" do
+  it "can decode cryptogram from Boyz Crazy" do
     a = Alphanumeric.create
     message = a.decode("8-1-16-16-25 14-15-23, 1-18-9-5-12?")
 
-    expect(message).to eq("happy now ariel?")
+    expect(message).to eq("happy now, ariel?")
   end
 
-  xit "can decode cryptogram from Land Before Swine" do
+  it "can decode cryptogram from Land Before Swine" do
     a = Alphanumeric.create
     message = a.decode("9-20 23-15-18-11-19 6-15-18 16-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-9-7-19!")
 
-    expect(message).to eq("it works for piiiigs")
+    expect(message).to eq("it works for piiiiiiiiiiiiiiiiigs!")
   end
 
-  xit "can decode cryptogram from Dreamscapers" do
+  it "can decode cryptogram from Dreamscapers" do
     a = Alphanumeric.create
     message = a.decode("20-15 2-5 3-15-14-20-9-14-21-5-4...")
 
-    expect(message).to eq("to be continued")
+    expect(message).to eq("to be continued...")
   end
 
-  xit "can decode cryptogram from Gideon Rises" do
+  it "can decode cryptogram from Gideon Rises" do
     a = Alphanumeric.create
     message = a.decode("18-5-22-5-18-19-5 20-8-5 3-9-16-8-5-18-19")
 
