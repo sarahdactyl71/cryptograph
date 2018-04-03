@@ -35,16 +35,7 @@ class Alphanumeric < ApplicationRecord
           if char == " "
             secret << char
           elsif ("1".."26").include?(char) == false
-            char = char.split(/(?=[':','?','.','!',',','''])/)
-            char.each do |character|
-              if character.to_i == 0
-                secret << character
-              else
-                character = character.to_i - 1
-                letter = self.character_map[character]
-                secret << letter
-              end
-            end
+            process_special_characters(char, secret)
           else
             char = char.to_i - 1
             letter = self.character_map[char]
@@ -54,6 +45,19 @@ class Alphanumeric < ApplicationRecord
       end
     end
     secret
+  end
+
+  def process_special_characters(char, secret)
+    char = char.split(/(?=[':','?','.','!',',','''])/)
+    char.each do |character|
+      if character.to_i == 0
+        secret << character
+      else
+        character = character.to_i - 1
+        letter = self.character_map[character]
+        secret << letter
+      end
+    end
   end
 
 end
