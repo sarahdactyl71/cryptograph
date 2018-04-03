@@ -26,9 +26,7 @@ class Alphanumeric < ApplicationRecord
     secret = ""
     message.each do |character|
       if character.length <= 2
-        character = character.to_i - 1
-        letter = self.character_map[character]
-        secret << letter
+        change_number_to_letter(character, secret)
       else
         character_partitioning(character, secret)
       end
@@ -44,9 +42,7 @@ class Alphanumeric < ApplicationRecord
       elsif ("1".."26").include?(char) == false
         process_special_characters(char, secret)
       else
-        char = char.to_i - 1
-        letter = self.character_map[char]
-        secret << letter
+        change_number_to_letter(char, secret)
       end
     end
   end
@@ -55,23 +51,24 @@ class Alphanumeric < ApplicationRecord
     char = char.split(/(?=[':','?','.','!',',','''])/)
     char.each do |character|
       if character.to_i == 0
-        # binding.pry
         character = character.split(/(?<=[':','?','.','!',',','''])/)
         character.each do |char|
           if char.to_i == 0
             secret << char
           else
-            char = char.to_i - 1
-            letter = self.character_map[char]
-            secret << letter
+            change_number_to_letter(char, secret)
           end
         end
       else
-        character = character.to_i - 1
-        letter = self.character_map[character]
-        secret << letter
+        change_number_to_letter(character, secret)
       end
     end
+  end
+
+  def change_number_to_letter(character, secret)
+    character = character.to_i - 1
+    letter = self.character_map[character]
+    secret << letter
   end
 
 end
