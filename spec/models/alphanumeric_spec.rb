@@ -22,21 +22,21 @@ RSpec.describe Alphanumeric, type: :model do
     expect(secret).to eq("1-2-3")
   end
 
-  xit "can decode a simple secret" do
+  it "can decode a simple secret" do
     a = Alphanumeric.create
     message = a.decode("1")
 
     expect(message).to eq("a")
   end
 
-  xit "can decode a simple secret lower in the character map" do
+  it "can decode a simple secret lower in the character map" do
     a = Alphanumeric.create
     message = a.decode("19")
 
     expect(message).to eq("s")
   end
 
-  xit "can decode - from other special characters" do
+  it "can decode - from other special characters" do
     a = Alphanumeric.create
     message = a.decode("1-2-3")
 
@@ -66,7 +66,7 @@ RSpec.describe Alphanumeric, type: :model do
     expect(message).to eq("next up: 'footbot two: grunkles's grevenge.'")
   end
 
-  xit "can decode cryptogram from The Deep End" do
+  it "can decode cryptogram from The Deep End" do
     a = Alphanumeric.create
     message = a.decode("22-9-22-1-14 12-15-19 16-1-20-15-19 4-5 12-1 16-9-19-3-9-14-1.")
 
