@@ -108,4 +108,6 @@ RSpec.describe Alphanumeric, type: :model do
     expect(message).to eq("reverse the ciphers")
   end
 
+  
+
 end
