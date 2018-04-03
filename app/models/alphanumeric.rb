@@ -30,12 +30,16 @@ class Alphanumeric < ApplicationRecord
         letter = self.character_map[character]
         secret << letter
       else
-        binding.pry
-        piece = character.partition(" ")
-        piece.each do |letter|
-          character = character.to_i - 1
-          letter = self.character_map[character]
-          secret << letter
+        character = character.partition(" ")
+        character.each do |char|
+          if char == " "
+            secret << char
+          else
+            binding.pry
+            char = char.to_i - 1
+            letter = self.character_map[char]
+            secret << letter
+          end
         end
       end
     end
