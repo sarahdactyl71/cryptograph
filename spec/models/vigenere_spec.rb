@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Vigenere, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  it "can be created" do
+    v = Vigenere.create
+
+    expect(v).to be_instance_of(Vigenere)
+  end
+
+  
 end
