@@ -1,0 +1,2 @@
+class Vigenere < ApplicationRecord
+end
