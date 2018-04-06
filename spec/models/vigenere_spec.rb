@@ -122,5 +122,62 @@ RSpec.describe Vigenere, type: :model do
     expect(secret).to eq('EXCELSI-WHATEVER!')
   end
 
+  it "can decode a message from The Stanchurian Candidate" do
+    v = Vigenere.create
+    secret = v.decode("CWZSQVQBEWZSQVQBEWZSQVQMPHKD 'MZ!", "WORKINIT")
+
+    expect(secret).to eq("GIIIIIIIIIIIIIIIIIIIIIITTTTT 'EM!")
+  end
+
+  it "can decode a message from The Last Mabelcorn" do
+    v = Vigenere.create
+    secret = v.decode("S UPYTYH DIP GAVO QETHI MCBK OHK XEXJB VRW YOUWCHIA VRSV OQ LRDIA", "SCHMENDRICK")
+
+    expect(secret).to eq("A SIMPLE MAN WITH EAGER EARS MAY TRUST THE WHISPERS THAT HE HEARS")
+  end
+
+  it "can decode a message from Roadside Attraction" do
+    v = Vigenere.create
+    secret = v.decode("VCDH, PZNS P CSSOS VDPUHB GTXILSKTV, VYSCIYROZN USLQR WXW NDM WDQVZOGS, EEG PTUVZHBSTH R WOAZMEJ PJAPURU PCH JDGHN GRW OADRX WVT LEP", "DOPPER")
+
+    expect(secret).to eq("SOOS, LIKE A NOBLE GOLDEN RETRIEVER, EVENTUALLY FOUND HIS WAY HOMEWARD, AND BEFRIENDED A TALKING BULLDOG AND SASSY CAT ALONG THE WAY")
+  end
+
+  it "can decode a message from Dipper and Mabel vs. the Future" do
+    #this keyword might need no space
+    v = Vigenere.create
+    secret = v.decode("ETX CPI ASTD GI?", "BLUE BOOK")
+
+    expect(secret).to eq("DID YOU MISS ME?")
+  end
+
+  it "can decode a message from Weirdmageddon Part 1" do
+    v = Vigenere.create
+    secret = v.decode("KB HTMT IHOV 1,000 AMLCT NDY XZOM MLCG'H TSCGKFWFA IV VVEWYDUQIBXV, CVO HIMC OI'J DINV, IM'H NSZPO EZ CM KLVP EZLYLG", "CILLBIPHER")
+
+    expect(secret).to eq("IT WILL TAKE 1,000 YEARS FOR TIME BABY'S MOLECULES TO RECONSTITUTE, AND WHEN HE'S BACK, HE'S GOING TO BE VERY CRANKY.")
+  end
+
+  it "can decode a message from Weirdmageddon 2: Escape From Reality" do
+    v = Vigenere.create
+    secret = v.decode("FZPO YSU BQSHZ LTLY FR LV UCC IFJ CIYHO LTEYWKQWUW II P KFASJ JKQASPJE'W LLOMKXQNFR FLWEDGI", "DIPPYFRESH")
+
+    expect(secret).to eq("CRAZ AND XYLER WENT ON TO RUN THE LEGAL DEPARTMENT AT A MAJOR CHILDREN'S TELEVISION NETWORK")
+  end
+
+  it "can decode a message from Weirdmageddon 3: Take Back The Fallsy" do
+    v = Vigenere.create
+    secret = v.decode("KVOU VTKSE XVREOW DQTMJKGD MF KNLJH CVE 900 YCHJZ OH XXFB PJPSKC FVQUSIOV LHP: FRNLLCDBFBF", "SHACKTRON")
+
+    expect(secret).to eq("SOOS LATER FORCED MCGUCKET TO WATCH ALL 900 HOURS OF NEON CRISIS MECHABOT BOY: REVELATIONS")
+  end
+
+  it "can decode a message from Weirdmageddon 4: Somewhere in The Woods" do
+    v = Vigenere.create
+    secret = v.decode("ZMFUIGV PSHP IGK AGTAYAG TRMNE VVGSQW KLE JOJXU GIMWZ", "HIDDEN DEEP WITHIN THE WOODS A BURIED TREASURE WAITS")
+
+    expect(secret).to eq("SECRETS LOST AND STATUES FOUND BEYOND THE RUSTY GATES")
+  end
+
 
 end
