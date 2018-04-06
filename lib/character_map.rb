@@ -31,4 +31,15 @@ module CharacterMap
           ]
   end
 
+  def vigenere_grid
+    count = 0
+    array = []
+    until count == 26
+      v = character_map.rotate(count)
+      count += 1
+      array << v
+    end
+    array
+  end
+
 end
