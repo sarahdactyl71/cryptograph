@@ -18,10 +18,14 @@ class Vigenere < ApplicationRecord
 
   def keyword_length(keyword, message_length)
     left_over = message_length % keyword.length
-    until keyword.length > message_length do
-      keyword += keyword
+    if left_over == 0
+      keyword
+    else
+      until keyword.length > message_length do
+        keyword += keyword
+      end
+      keyword[0..-left_over]
     end
-    keyword[0..-left_over]
   end
 
 end
