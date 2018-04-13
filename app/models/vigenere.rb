@@ -6,7 +6,9 @@ class Vigenere < ApplicationRecord
     new_keyword = keyword_length(keyword, message_length)
     message = message.chars
     message.each do |char|
+      char = char.downcase
       grid = self.vigenere_grid
+      intersection = character_map.index(char)
       binding.pry
     end
   end
