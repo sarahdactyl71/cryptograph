@@ -3,14 +3,18 @@ class Vigenere < ApplicationRecord
 
   def encode(message, keyword)
     message_length = message.length
-    new_keyword = keyword_length(keyword, message_length)
+    new_keyword = keyword_length(keyword, message_length).downcase.chars
     message = message.chars
+    array = []
     message.each do |char|
-      char = char.downcase
-      grid = self.vigenere_grid
-      intersection = character_map.index(char)
-      binding.pry
+      new_keyword.each do |letter|
+        char = char.downcase
+        intersection = character_map.index(char)
+        array << vigenere_grid[letter][intersection]
+      end
     end
+    array
+    binding.pry
   end
 
   def decode(message, keyword)
