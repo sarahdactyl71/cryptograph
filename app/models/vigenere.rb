@@ -8,7 +8,7 @@ class Vigenere < ApplicationRecord
     secret = ""
     message.zip(new_keyword).each do |char, letter|
       intersection = character_map.index(char.downcase)
-      secret << vigenere_grid[letter][intersection]
+      secret << vigenere_grid[letter][intersection].upcase
     end
     secret
   end
