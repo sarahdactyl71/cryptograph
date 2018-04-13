@@ -5,15 +5,15 @@ class Vigenere < ApplicationRecord
     message_length = message.length
     new_keyword = keyword_length(keyword, message_length).downcase.chars
     message = message.chars
-    array = []
+    secret = ""
     message.each do |char|
       new_keyword.each do |letter|
         char = char.downcase
         intersection = character_map.index(char)
-        array << vigenere_grid[letter][intersection]
+        secret << vigenere_grid[letter][intersection]
       end
     end
-    array
+    secret
     binding.pry
   end
 
