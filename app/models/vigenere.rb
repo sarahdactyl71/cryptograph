@@ -1,9 +1,14 @@
 class Vigenere < ApplicationRecord
+  include CharacterMap
 
   def encode(message, keyword)
     message_length = message.length
     new_keyword = keyword_length(keyword, message_length)
-    binding.pry
+    message = message.chars
+    message.each do |char|
+      grid = self.vigenere_grid
+      binding.pry
+    end
   end
 
   def decode(message, keyword)
