@@ -7,14 +7,14 @@ class Vigenere < ApplicationRecord
     message = message.chars
     secret = ""
     message.each do |char|
-      new_keyword.each do |letter|
-        char = char.downcase
-        intersection = character_map.index(char)
-        secret << vigenere_grid[letter][intersection]
-      end
+      intersection = character_map.index(char)
+      # new_keyword.each do |letter|
+      #   char = char.downcase
+      #   secret << vigenere_grid[letter][intersection].upcase
+      # end
+      find_secret_letter(char, intersection, new_keyword, secret)
     end
     secret
-    binding.pry
   end
 
   def decode(message, keyword)
@@ -26,6 +26,13 @@ class Vigenere < ApplicationRecord
       keyword += keyword
     end
     keyword[0..-left_over]
+  end
+
+  def find_secret_letter(char, intersection, new_keyword, secret)
+    new_keyword.each do |letter|
+      char = char.downcase
+      secret << vigenere_grid[letter][intersection].upcase
+    end
   end
 
 end
