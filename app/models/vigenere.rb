@@ -6,11 +6,9 @@ class Vigenere < ApplicationRecord
     new_keyword = keyword_length(keyword, message_length).downcase.chars
     message = message.chars
     secret = ""
-    message.each do |char|
+    message.zip(new_keyword).each do |char, letter|
       intersection = character_map.index(char.downcase)
-      new_keyword.each do |letter|
-        secret << vigenere_grid[letter][intersection]
-      end
+      secret << vigenere_grid[letter][intersection].upcase
     end
     secret
   end
@@ -20,10 +18,14 @@ class Vigenere < ApplicationRecord
 
   def keyword_length(keyword, message_length)
     left_over = message_length % keyword.length
-    until keyword.length > message_length do
-      keyword += keyword
+    if left_over == 0
+      keyword
+    else
+      until keyword.length > message_length do
+        keyword += keyword
+      end
+      keyword[0..-left_over]
     end
-    keyword[0..-left_over]
   end
 
 end

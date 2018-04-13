@@ -8,14 +8,14 @@ RSpec.describe Vigenere, type: :model do
     expect(v).to be_instance_of(Vigenere)
   end
 
-  xit 'can encode a simple message' do
+  it 'can encode a simple message' do
     v = Vigenere.create
     secret = v.encode('a', 'b')
 
-    expect(secret).to eq('b')
+    expect(secret).to eq('B')
   end
 
-  xit "can encode a simple message with cipher and messge of equal length" do
+  it "can encode a simple message with cipher and messge of equal length" do
     v = Vigenere.create
     secret = v.encode('sarah', 'emily')
 
