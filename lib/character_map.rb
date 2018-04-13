@@ -33,13 +33,15 @@ module CharacterMap
 
   def vigenere_grid
     count = 0
-    array = []
+    hash = {}
     until count == 26
-      v = character_map.rotate(count)
-      count += 1
-      array << v
+      character_map.each do |char|
+        v = character_map.rotate(count)
+        hash[char] = v
+        count += 1
+      end
     end
-    array
+    hash
   end
 
 end
