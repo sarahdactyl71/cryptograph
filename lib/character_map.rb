@@ -37,9 +37,12 @@ module CharacterMap
     until count == 26
       v = character_map.rotate(count)
       count += 1
-      array << v
+      character_map.each do |char|
+        hash = {}
+        hash[:char] = v
+      end
     end
-    array
+    hash
   end
 
 end
